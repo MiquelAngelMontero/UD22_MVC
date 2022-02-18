@@ -5,14 +5,6 @@ public class videosTab {
 	private String title;
 	private String director;
 	private int cli_id;
-	
-	public videosTab(int id, String title, String director, int cli_id) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.director = director;
-		this.cli_id = cli_id;
-	}
 
 	public int getId() {
 		return id;

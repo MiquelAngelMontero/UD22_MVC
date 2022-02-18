@@ -8,16 +8,6 @@ public class clienteTab {
 	private int dni;
 	private String decha;
 	
-	public clienteTab(int id, String nombre, String apellido, String direccion, int dni, String decha) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.direccion = direccion;
-		this.dni = dni;
-		this.decha = decha;
-	}
-
 	public int getId() {
 		return id;
 	}
