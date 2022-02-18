@@ -20,6 +20,11 @@ public class Conexion {
 			System.out.println(e);
 		}
 	}
+	
+	public Connection getConnection(){
+	      return conexion;
+	   }
+
 	//Metodo para cerrar la sesion de la base de datos
 	public void closeConnection() {
 		try {
