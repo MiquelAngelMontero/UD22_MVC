@@ -1,4 +1,3 @@
-package UD22.UD22;
 
 
 import modelo.conexion.Conexion;
