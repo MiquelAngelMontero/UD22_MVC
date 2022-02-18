@@ -4,20 +4,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
-import modelo.conexion.Conexion;
-import modelo.dto.clienteTab;
 
-public class clientePersona {
-	public void registrarPersona(clienteTab person) {
+import javax.swing.JOptionPane;
+
+import modelo.conexion.Conexion;
+import modelo.dto.videosTab;
+
+public class videosCliente {
+	public void registrarPersona(videosTab person) {
 		Conexion conexion= new Conexion();
 		
 		try {
 			Statement st = conexion.getConnection().createStatement();
-			String sql= "INSERT INTO cliente VALUES ('"+person.getId()+"', '"
-					+person.getNombre()+"', '"+person.getApellido()+"', '"
-					+person.getDireccion()+"', '"+person.getDni()+"', '"
-					+person.getFecha()+"');";
+			String sql= "INSERT INTO videos VALUES ('"+person.getId()+"', '"
+					+person.getTitle()+"', '"+person.getDirector()+"', '"
+					+person.getCli_id()+"');";
 			st.executeUpdate(sql);
 			JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);
 			System.out.println(sql);
@@ -30,23 +31,22 @@ public class clientePersona {
 		}
 	}
 	
-	public clienteTab buscarPersona(int codigo) {
+	public videosTab buscarPersona(int codigo) {
 		Conexion conexion= new Conexion();
-		clienteTab client= new clienteTab();
+		videosTab client= new videosTab();
 		boolean existe=false;
 		try {
-			String sql= "SELECT * FROM cliente where id = ? ";
+			String sql= "SELECT * FROM videos where id = ? ";
 			PreparedStatement consulta = conexion.getConnection().prepareStatement(sql);
 			consulta.setInt(1, codigo);
 			ResultSet res = consulta.executeQuery();
 			while(res.next()){
 				existe=true;
 				client.setId(Integer.parseInt(res.getString("id")));
-				client.setNombre(res.getString("nombre"));
-				client.setApellido(res.getString("apellido"));
-				client.setDireccion(res.getString("direccion"));
-				client.setDni(Integer.parseInt(res.getString("dni")));
-				client.setFecha(res.getString("fecha"));
+				client.setTitle(res.getString("title"));
+				client.setDirector(res.getString("director"));
+				client.setCli_id(Integer.parseInt(res.getString("cli_id")));
+
 			 }
 			res.close();
 			conexion.closeConnection();
@@ -63,20 +63,17 @@ public class clientePersona {
 			else return null;				
 	}
 	
-	public void modificarPersona(clienteTab person) {
+	public void modificarPersona(videosTab person) {
 			
 			Conexion conex= new Conexion();
 			try{
-				String consulta="UPDATE cliente SET id= ? ,nombre = ? , apellido=? , direccion=? , dni= ?, fecha= ? WHERE id= ? ";
+				String consulta="UPDATE videos SET id= ? ,tile = ? , director=? WHERE cli_id= ? ";
 				PreparedStatement upd = conex.getConnection().prepareStatement(consulta);
 				
 				upd.setInt(1, person.getId());
-				upd.setString(2, person.getNombre());
-				upd.setString(3, person.getApellido());
-				upd.setString(4, person.getDireccion());
-				upd.setInt(5,person.getDni());
-				upd.setString(6, person.getFecha());
-				upd.setInt(7, person.getId());
+				upd.setString(2, person.getTitle());
+				upd.setString(3, person.getDirector());
+				upd.setInt(5, person.getId());
 				upd.executeUpdate();
 	            
 	          JOptionPane.showMessageDialog(null, " Se ha Modificado Correctamente ","Confirmación",JOptionPane.INFORMATION_MESSAGE);
@@ -92,7 +89,7 @@ public class clientePersona {
 	public void eliminarPersona(String codigo){
 		Conexion conexion= new Conexion();
 		try {
-			String sql= "DELETE FROM cliente WHERE id='"+codigo+"'";
+			String sql= "DELETE FROM videos WHERE cli_id='"+codigo+"'";
 			Statement st = conexion.getConnection().createStatement();
 			st.executeUpdate(sql);
 	        JOptionPane.showMessageDialog(null, " Se ha Eliminado Correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
@@ -105,5 +102,4 @@ public class clientePersona {
 			JOptionPane.showMessageDialog(null, "No se Elimino");
 		}
 	}
-
 }
