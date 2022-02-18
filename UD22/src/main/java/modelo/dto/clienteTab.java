@@ -1,4 +1,4 @@
-package modelo.dao;
+package modelo.dto;
 
 public class clienteTab {
 	private int id;

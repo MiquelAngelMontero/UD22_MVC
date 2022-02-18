@@ -1,4 +1,4 @@
-package modelo.dao;
+package modelo.dto;
 
 public class videosTab {
 	private int id;
