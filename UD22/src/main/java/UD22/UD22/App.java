@@ -1,6 +1,6 @@
 package UD22.UD22;
 
-import modelo.Conexion;
+import modelo.conexion.Conexion;
 
 /**
  * Hello world!
