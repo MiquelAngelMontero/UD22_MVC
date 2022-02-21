@@ -14,6 +14,7 @@ public class VentanaRegistro extends JFrame implements ActionListener{
 	private JTextField textID,textNombre,textApellido,textDireccion,textDNI,textFecha;
 	private JLabel cod,nombre,edad,telefono,profesion;
 	private JButton botonGuardar,botonCancelar;
+	private JLabel lblFecha;
 	
 	/**
 	 * constructor de la clase donde se inicializan todos los componentes
@@ -22,11 +23,11 @@ public class VentanaRegistro extends JFrame implements ActionListener{
 	public VentanaRegistro() {
 
 		botonGuardar = new JButton();
-		botonGuardar.setBounds(110, 220, 120, 25);
+		botonGuardar.setBounds(108, 329, 120, 25);
 		botonGuardar.setText("Registrar");
 		
 		botonCancelar = new JButton();
-		botonCancelar.setBounds(250, 220, 120, 25);
+		botonCancelar.setBounds(250, 329, 120, 25);
 		botonCancelar.setText("Cancelar");
 
 		labelTitulo = new JLabel();
@@ -35,65 +36,70 @@ public class VentanaRegistro extends JFrame implements ActionListener{
 		labelTitulo.setFont(new java.awt.Font("Verdana", 1, 18));
 
 		cod=new JLabel();
-		cod.setText("Codigo");
-		cod.setBounds(20, 80, 80, 25);
-		add(cod);
+		cod.setText("ID");
+		cod.setBounds(10, 80, 80, 25);
+		getContentPane().add(cod);
 		
 		nombre=new JLabel();
 		nombre.setText("Nombre");
-		nombre.setBounds(20, 120, 80, 25);
-		add(nombre);
+		nombre.setBounds(10, 116, 80, 25);
+		getContentPane().add(nombre);
 
 		telefono=new JLabel();
-		telefono.setText("telefono");
-		telefono.setBounds(290, 160, 80, 25);
-		add(telefono);
+		telefono.setText("Direccion");
+		telefono.setBounds(10, 224, 80, 25);
+		getContentPane().add(telefono);
 		
 		profesion=new JLabel();
-		profesion.setText("profesion");
-		profesion.setBounds(20, 160, 80, 25);
-		add(profesion);
+		profesion.setText("Apellido");
+		profesion.setBounds(10, 152, 80, 25);
+		getContentPane().add(profesion);
 		
 		edad=new JLabel();
-		edad.setText("Edad");
-		edad.setBounds(290, 120, 80, 25);
-		add(edad);
+		edad.setText("DNI");
+		edad.setBounds(10, 188, 80, 25);
+		getContentPane().add(edad);
 		
 		textID=new JTextField();
 		textID.setBounds(80, 80, 80, 25);
-		add(textID);
+		getContentPane().add(textID);
 		
 		textNombre=new JTextField();
-		textNombre.setBounds(80, 120, 190, 25);
-		add(textNombre);
+		textNombre.setBounds(80, 116, 190, 25);
+		getContentPane().add(textNombre);
 
 		textApellido=new JTextField();
-		textApellido.setBounds(340, 160, 80, 25);
-		add(textApellido);
+		textApellido.setBounds(80, 224, 190, 25);
+		getContentPane().add(textApellido);
 		
 		textDireccion=new JTextField();
-		textDireccion.setBounds(80, 160, 190, 25);
-		add(textDireccion);
+		textDireccion.setBounds(80, 188, 190, 25);
+		getContentPane().add(textDireccion);
 		
 		textDNI=new JTextField();
-		textDNI.setBounds(340, 120, 80, 25);
-		add(textDNI);
+		textDNI.setBounds(80, 152, 190, 25);
+		getContentPane().add(textDNI);
 		
 		textFecha=new JTextField();
-		textFecha.setBounds(300, 160, 80, 25);
-		add(textFecha);
+		textFecha.setBounds(80, 260, 80, 25);
+		getContentPane().add(textFecha);
 		
 		botonGuardar.addActionListener(this);
 		botonCancelar.addActionListener(this);
-		add(botonCancelar);
-		add(botonGuardar);
-		add(labelTitulo);
+		getContentPane().add(botonCancelar);
+		getContentPane().add(botonGuardar);
+		getContentPane().add(labelTitulo);
 		limpiar();
-		setSize(480, 300);
+		setSize(481, 439);
 		setTitle("Patron de Diseño/MVC");
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setLayout(null);
+		getContentPane().setLayout(null);
+		
+		lblFecha = new JLabel();
+		lblFecha.setText("Fecha");
+		lblFecha.setBounds(10, 260, 80, 25);
+		getContentPane().add(lblFecha);
 
 	}
 

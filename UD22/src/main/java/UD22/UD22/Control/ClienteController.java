@@ -6,57 +6,72 @@ import UD22.UD22.Vista.VentanaBuscar;
 import UD22.UD22.Vista.VentanaPrincipal;
 import UD22.UD22.Vista.VentanaRegistro;
 
-public class ClienteController {
-
-	public void modificarCliente(Cliente miCliente) {
-		// TODO Auto-generated method stub
-		
+public class ClienteController {	
+	
+	private ClienteServ clienteServ;
+	private VentanaPrincipal miVentanaPrincipal;
+	private VentanaRegistro miVentanaRegistro;
+	private VentanaBuscar miVentanaBuscar;
+	
+	public ClienteServ getClienteServ() {
+		return clienteServ;
 	}
 
-	public Cliente buscarCliente(String text) {
-		// TODO Auto-generated method stub
-		return null;
+	public void setClienteServ(ClienteServ clienteServ) {
+		this.clienteServ = clienteServ;
 	}
 
-	public void eliminarCliente(String text) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mostrarVentanaRegistro() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void mostrarVentanaConsulta() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void registrarCliente(Cliente miCliente) {
-		// TODO Auto-generated method stub
-		
+	public VentanaPrincipal getMiVentanaPrincipal() {
+		return miVentanaPrincipal;
 	}
 
 	public void setMiVentanaPrincipal(VentanaPrincipal miVentanaPrincipal) {
-		// TODO Auto-generated method stub
-		
+		this.miVentanaPrincipal = miVentanaPrincipal;
+	}
+
+	public VentanaRegistro getMiVentanaRegistro() {
+		return miVentanaRegistro;
 	}
 
 	public void setMiVentanaRegistro(VentanaRegistro miVentanaRegistro) {
-		// TODO Auto-generated method stub
-		
+		this.miVentanaRegistro = miVentanaRegistro;
+	}
+
+	public VentanaBuscar getMiVentanaBuscar() {
+		return miVentanaBuscar;
 	}
 
 	public void setMiVentanaBuscar(VentanaBuscar miVentanaBuscar) {
-		// TODO Auto-generated method stub
-		
+		this.miVentanaBuscar = miVentanaBuscar;
 	}
 
-	public void setClienteServ(ClienteServ miClienteServ) {
-		// TODO Auto-generated method stub
-		
+	//Funcions de cliente
+	public void modificarCliente(Cliente miCliente) {
+		clienteServ.validarModificacion(miCliente);
+	}
+
+	public Cliente buscarCliente(String text) {
+		return clienteServ.validarConsulta(text);
+	}
+
+	public void eliminarCliente(String text) {
+		clienteServ.validarEliminacion(text);
+
 	}
 	
+	public void registrarCliente(Cliente miCliente) {
+		clienteServ.validarRegistro(miCliente);
+
+	}
 	
+	//Mostrar Ventanas
+	public void mostrarVentanaRegistro() {
+		miVentanaRegistro.setVisible(true);
+
+	}
+
+	public void mostrarVentanaConsulta() {
+		miVentanaBuscar.setVisible(true);
+
+	}
 }

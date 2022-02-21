@@ -6,6 +6,7 @@ import javax.swing.*;
 import UD22.UD22.Control.ClienteController;
 import UD22.UD22.Modelo.dto.Cliente;
 import UD22.UD22.Modelo.dto.ClienteServ;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class VentanaBuscar extends JFrame implements ActionListener{
 
@@ -14,8 +15,8 @@ private static final long serialVersionUID = 1L;
 	private ClienteController ClienteController; //objeto ClienteController que permite la relacion entre esta clase y la clase ClienteController
 	private JLabel labelTitulo;
 	private JTextField textID,textNombre,textApellido,textDireccion,textDNI,textFecha;
-	private JLabel cod,nombre,edad,telefono,profesion;
 	private JButton botonGuardar,botonCancelar,botonBuscar,botonModificar,botonEliminar;
+	private JLabel lblFecha;
 	
 	/**
 	 * constructor de la clase donde se inicializan todos los componentes
@@ -25,11 +26,11 @@ private static final long serialVersionUID = 1L;
 	public VentanaBuscar() {
 
 		botonGuardar = new JButton();
-		botonGuardar.setBounds(50, 220, 120, 25);
+		botonGuardar.setBounds(41, 314, 120, 25);
 		botonGuardar.setText("Guardar");
 		
 		botonCancelar = new JButton();
-		botonCancelar.setBounds(190, 250, 120, 25);
+		botonCancelar.setBounds(190, 344, 120, 25);
 		botonCancelar.setText("Cancelar");
 		
 		botonBuscar = new JButton();
@@ -37,66 +38,41 @@ private static final long serialVersionUID = 1L;
 		botonBuscar.setText("Ok");
 		
 		botonEliminar = new JButton();
-		botonEliminar.setBounds(330, 220, 120, 25);
+		botonEliminar.setBounds(335, 314, 120, 25);
 		botonEliminar.setText("Eliminar");
 		
 		botonModificar = new JButton();
-		botonModificar.setBounds(190, 220, 120, 25);
+		botonModificar.setBounds(190, 314, 120, 25);
 		botonModificar.setText("Modificar");
 
 		labelTitulo = new JLabel();
 		labelTitulo.setText("ADMINISTRAR ClienteS");
 		labelTitulo.setBounds(120, 20, 380, 30);
 		labelTitulo.setFont(new java.awt.Font("Verdana", 1, 18));
-
-		cod=new JLabel();
-		cod.setText("Codigo");
-		cod.setBounds(20, 80, 80, 25);
-		add(cod);
-		
-		nombre=new JLabel();
-		nombre.setText("Nombre");
-		nombre.setBounds(20, 120, 80, 25);
-		add(nombre);
-
-		telefono=new JLabel();
-		telefono.setText("telefono");
-		telefono.setBounds(290, 160, 80, 25);
-		add(telefono);
-		
-		profesion=new JLabel();
-		profesion.setText("profesion");
-		profesion.setBounds(20, 160, 80, 25);
-		add(profesion);
-		
-		edad=new JLabel();
-		edad.setText("Edad");
-		edad.setBounds(290, 120, 80, 25);
-		add(edad);
 		
 		textID=new JTextField();
 		textID.setBounds(80, 80, 80, 25);
-		add(textID);
+		getContentPane().add(textID);
 		
 		textNombre=new JTextField();
 		textNombre.setBounds(80, 120, 190, 25);
-		add(textNombre);
+		getContentPane().add(textNombre);
 
 		textApellido=new JTextField();
-		textApellido.setBounds(340, 160, 80, 25);
-		add(textApellido);
+		textApellido.setBounds(80, 232, 190, 25);
+		getContentPane().add(textApellido);
 		
 		textDireccion=new JTextField();
-		textDireccion.setBounds(80, 160, 190, 25);
-		add(textDireccion);
+		textDireccion.setBounds(80, 196, 190, 25);
+		getContentPane().add(textDireccion);
 		
 		textDNI=new JTextField();
-		textDNI.setBounds(340, 120, 80, 25);
-		add(textDNI);
+		textDNI.setBounds(80, 160, 190, 25);
+		getContentPane().add(textDNI);
 		
 		textFecha=new JTextField();
-		textFecha.setBounds(300, 160, 80, 25);
-		add(textFecha);
+		textFecha.setBounds(80, 268, 80, 25);
+		getContentPane().add(textFecha);
 		
 		botonModificar.addActionListener(this);
 		botonEliminar.addActionListener(this);
@@ -104,19 +80,49 @@ private static final long serialVersionUID = 1L;
 		botonGuardar.addActionListener(this);
 		botonCancelar.addActionListener(this);
 
-		add(botonCancelar);
-		add(botonBuscar);
-		add(botonModificar);
-		add(botonEliminar);
-		add(botonGuardar);
-		add(labelTitulo);
+		getContentPane().add(botonCancelar);
+		getContentPane().add(botonBuscar);
+		getContentPane().add(botonModificar);
+		getContentPane().add(botonEliminar);
+		getContentPane().add(botonGuardar);
+		getContentPane().add(labelTitulo);
 		limpiar();
 		
-		setSize(480, 320);
+		setSize(481, 419);
 		setTitle("Patron de Diseño/MVC");
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setLayout(null);
+		getContentPane().setLayout(null);
+		
+		lblFecha = new JLabel();
+		lblFecha.setText("Fecha");
+		lblFecha.setBounds(10, 268, 80, 25);
+		getContentPane().add(lblFecha);
+		
+		JLabel lblId = new JLabel();
+		lblId.setText("ID");
+		lblId.setBounds(10, 80, 60, 25);
+		getContentPane().add(lblId);
+		
+		JLabel lblNombre = new JLabel();
+		lblNombre.setText("Nombre");
+		lblNombre.setBounds(10, 120, 60, 25);
+		getContentPane().add(lblNombre);
+		
+		JLabel lblApellido = new JLabel();
+		lblApellido.setText("Apellido");
+		lblApellido.setBounds(10, 160, 60, 25);
+		getContentPane().add(lblApellido);
+		
+		JLabel lblDni = new JLabel();
+		lblDni.setText("DNI");
+		lblDni.setBounds(10, 196, 60, 25);
+		getContentPane().add(lblDni);
+		
+		JLabel lblDireccion = new JLabel();
+		lblDireccion.setText("Direccion");
+		lblDireccion.setBounds(10, 232, 60, 25);
+		getContentPane().add(lblDireccion);
 
 	}
 
@@ -251,12 +257,9 @@ private static final long serialVersionUID = 1L;
 		textApellido.setEditable(apellido);
 		textDireccion.setEditable(direccion);
 		textDNI.setEditable(DNI);
-		textFecha.setEditable(fecha);
-		botonBuscar.setEnabled(bBuscar);
+		textFecha.setEditable(false);
 		botonGuardar.setEnabled(bGuardar);
 		botonModificar.setEnabled(bModificar);
 		botonEliminar.setEnabled(bEliminar);
 	}
-
-	
 }
