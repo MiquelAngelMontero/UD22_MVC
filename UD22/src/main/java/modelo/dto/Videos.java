@@ -1,6 +1,6 @@
 package modelo.dto;
 
-public class videosTab {
+public class Videos {
 	private int id;
 	private String title;
 	private String director;

@@ -2,14 +2,14 @@ package UD22.UD22;
 
 
 import modelo.conexion.Conexion;
-import vista.vistaGeneral;
+import vista.VentanaPrincipal;
 
 /**
  * Hello world!
  *
  */
 public class App {
-	vistaGeneral ventanaGeneral;
+	VentanaPrincipal ventanaGeneral;
     public static void main( String[] args ) {
     	App run = new App();
     	run.iniciar();
@@ -17,7 +17,7 @@ public class App {
     
     private void iniciar() {
 		/*Se instancian las clases*/
-    	ventanaGeneral=new vistaGeneral();
+    	ventanaGeneral=new VentanaPrincipal();
 
 		
 		/*Se establecen las relaciones entre clases*/

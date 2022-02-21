@@ -1,6 +1,6 @@
 package modelo.dto;
 
-public class clienteTab {
+public class Cliente {
 	private int id;
 	private String nombre;
 	private String apellido;
