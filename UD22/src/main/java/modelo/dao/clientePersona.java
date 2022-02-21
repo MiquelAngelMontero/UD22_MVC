@@ -45,7 +45,7 @@ public class clientePersona {
 				client.setNombre(res.getString("nombre"));
 				client.setApellido(res.getString("apellido"));
 				client.setDireccion(res.getString("direccion"));
-				client.setDni(Integer.parseInt(res.getString("dni")));
+				client.setDni(res.getString("dni"));
 				client.setFecha(res.getString("fecha"));
 			 }
 			res.close();
@@ -74,7 +74,7 @@ public class clientePersona {
 				upd.setString(2, person.getNombre());
 				upd.setString(3, person.getApellido());
 				upd.setString(4, person.getDireccion());
-				upd.setInt(5,person.getDni());
+				upd.setString(5,person.getDni());
 				upd.setString(6, person.getFecha());
 				upd.setInt(7, person.getId());
 				upd.executeUpdate();

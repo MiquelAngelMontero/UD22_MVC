@@ -5,7 +5,7 @@ public class clienteTab {
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	private int dni;
+	private String dni;
 	private String fecha;
 	
 	public int getId() {
@@ -40,11 +40,11 @@ public class clienteTab {
 		this.direccion = direccion;
 	}
 
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
