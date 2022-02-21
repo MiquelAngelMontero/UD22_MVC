@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.dto;
 
 public class asignado_a {
 
@@ -9,8 +9,12 @@ public class asignado_a {
 		super();
 		this.cientifico = cientifico;
 		this.proyecto = proyecto;
+	}	
+	
+	public asignado_a() {
+		super();
 	}
-
+	
 	public String getCientifico() {
 		return cientifico;
 	}

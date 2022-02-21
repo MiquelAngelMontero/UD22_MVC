@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.dto;
 
 public class proyecto {
 
@@ -11,6 +11,10 @@ public class proyecto {
 		this.id = id;
 		this.nombre = nombre;
 		this.horas = horas;
+	}
+	
+	public proyecto() {
+		super();
 	}
 
 	public String getId() {

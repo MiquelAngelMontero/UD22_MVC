@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.dto;
 
 public class Cientifico {
 
@@ -11,6 +11,10 @@ public class Cientifico {
 		this.nomApels = nomApels;
 	}
 	
+	public Cientifico() {
+		super();
+	}
+
 	public String getDni() {
 		return dni;
 	}
