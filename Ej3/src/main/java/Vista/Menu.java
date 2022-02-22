@@ -3,6 +3,7 @@ package Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import Control.*;
 
 import javax.swing.*;
 
@@ -11,6 +12,9 @@ public class Menu  extends JFrame implements ActionListener{
 	private JPanel contentPane;
 	private JLabel titulo;
 	public JButton botonBuscarCient, botonBuscarProyecto, botonRegistrarCient, botonRegistrarProyecto, botonAsignar;
+	private ControlAsignado cA;
+	private ControlProyecto cP;
+	private ControlCient cC;
 
 	public Menu() {
 		
@@ -57,29 +61,31 @@ public class Menu  extends JFrame implements ActionListener{
 		contentPane.add(botonAsignar);
 		botonAsignar.addActionListener(this);
 	}
+	
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 		if(e.getSource()==botonBuscarCient) {
-			
+			this.cC.mostrarVentanaConsulta();
 		}
 		
 		if(e.getSource()==botonBuscarProyecto) {
-					
+			this.cP.mostrarVentanaConsulta();
 		}
 		
 		if(e.getSource()==botonRegistrarCient) {
-			
+			this.cC.mostrarRegistrarCient();
 		}
 		
 		if(e.getSource()==botonRegistrarProyecto) {
-			
+			this.cP.mostrarRegistrarProyecto();
 		}
 		
 		if(e.getSource()==botonAsignar) {
-			
+			this.cA.mostrarVentanaRegistro();
 		}
 		
 	}
